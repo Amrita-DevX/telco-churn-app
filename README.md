@@ -97,12 +97,48 @@ Once it starts, open the provided URL in the browser.
 ---
 
 
-🌐 **Live App**
+🚫 **Deployment Note**
 
-Try it live on Streamlit Cloud:
-🔗 https://smart-churn-checker.streamlit.app/
+Due to compatibility issues on Streamlit Cloud and Render, we were unable to deploy this app online.
+
+❌ **Common Deployment Errors Faced:**
+
+- ModuleNotFoundError: No module named 'distutils'
+
+- numpy==1.26.0 not compatible with Python 3.13
+
+- pip._vendor.pyproject_hooks._impl.BackendUnavailable
+
+🔹 **Why This Happened:**
+
+These platforms currently use Python 3.13, while some packages (e.g., NumPy, Pandas, Scikit-learn) are not fully stable or compatible with this version yet.
+
+🔧 **Advice for Anyone Using This Repo:**
+
+If you want to deploy this project on Render or Streamlit Cloud, we recommend:
+
+- Setting your Python version to 3.10 or 3.9
+
+- Using numpy==1.24.3, pandas==1.5.3, and scikit-learn==1.3.2 wihch is compatible 
+
+- Including a runtime.txt file (if needed )with this line:
+```
+python-3.10
+```
+
+- Avoiding large files like videos in the repo
+
+This project is 100% working locally and produces reliable results and visualizations. Just not yet cloud-deployed due to external dependency conflicts.
+You can check out the a preview of the app, Go to 
+```
+telco-churn-app/
+│
+├── data/churn_app_video.mp4     
+
+```
 
 ---
+
 
 ## 📁 Project Structure
 
