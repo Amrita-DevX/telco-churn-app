@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: telco-churn-app
+    env: python
+    repo: https://github.com/Amrita-DevX/telco-churn-app
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run streamlit_app.py --server.port=$PORT
+    plan: free
