@@ -4,6 +4,9 @@ FROM python:3.9-slim
 # Set working directory inside the container
 WORKDIR /app
 
+# Set HOME so Streamlit uses /app/.streamlit
+ENV HOME=/app
+
 # Copy everything from your repo into the container
 COPY . /app
 
